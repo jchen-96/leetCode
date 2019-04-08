@@ -6,7 +6,7 @@ package weekContest.week130;
 
 import java.util.Stack;
 
-public class Code_1028 {
+public class Code_1017 {
     public String baseNeg2(int N) {
         Stack<Integer> s=new Stack<>();
 

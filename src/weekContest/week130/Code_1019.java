@@ -4,7 +4,7 @@ package weekContest.week130;
 //　no need to read
 //链表中的下一个更大节点，简单的动态规划
 
-public class Code_1030 {
+public class Code_1019 {
     public int[] nextLargerNodes(ListNode head) {
         int count = 0;
         ListNode p = head;

@@ -5,7 +5,7 @@ import java.util.List;
 
 
 // no need to read
-public class Code_1029 {
+public class Code_1018 {
     public List<Boolean> prefixesDivBy5(int[] A) {
         List<Boolean> res = new ArrayList<>();
         int temp = 0;

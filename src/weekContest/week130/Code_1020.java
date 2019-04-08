@@ -3,7 +3,7 @@ package weekContest.week130;
 
 //孤立的岛屿问题
 
-public class Code_1031 {
+public class Code_1020 {
     int[][] dir={{0,1},{0,-1},{1,0},{-1,0}};
 
     int rows=0;
