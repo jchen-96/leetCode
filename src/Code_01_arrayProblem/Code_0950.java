@@ -6,6 +6,9 @@ import java.util.LinkedList;
 
 //https://leetcode-cn.com/problems/reveal-cards-in-increasing-order/
 
+
+//模拟题,没必要看
+
 public class Code_0950{
     public int[] deckRevealedIncreasing(int[] deck) {
         // 倒推
