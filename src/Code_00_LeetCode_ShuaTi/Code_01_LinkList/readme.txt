@@ -5,6 +5,6 @@
      3.  求两个链表的交点(LeetCode 160. Intersection of Two Linked Lists)　简单
      4.  链表的节点交换(LeetCode 24. Swap Nodes in Pairs) 简单
      5.  链表求环(LeetCode 141,142. Linked List Cycle 1,2)　简单
-     6.  链表重新构造(LeetCode 86. Partition List)
-     7.  复杂的链表复制(LeetCode 138. Copy List with Random Pointer)
+     6.  链表重新构造(LeetCode 86. Partition List)　简单
+     7.  复杂的链表复制(LeetCode 138. Copy List with Random Pointer)　细节
      8.  排序链表合并(2个与多个) (LeetCode 21,23 Merge Two(k) Sorted ListsLeetCode)
