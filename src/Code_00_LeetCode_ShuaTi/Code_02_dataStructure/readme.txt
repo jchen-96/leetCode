@@ -2,7 +2,7 @@
 
      1.  栈、队列知识要点与实现(数组、链表)
      2.  使用队列实现栈(LeetCode 232. Implement Queue using Stacks)　简单
-     3.  使用栈实现队列(LeetCode 225. Implement Stack using Queues)　简单
+     3.  使用栈实现队列(LeetCode 225. Implement Stack using Queues)　有点意思,可以看一下
      4.  包含min函数的栈(LeetCode 155. Min Stack)　简单
      5.  简单的计算器(栈的应用)( LeetCode 224. Basic Calculator)　好好看一下
      6.  堆(优先级队列)知识要点与实现
