@@ -7,4 +7,4 @@
      5.  简单的计算器(栈的应用)( LeetCode 224. Basic Calculator)　好好看一下！！！！
      6.  堆(优先级队列)知识要点与实现
      7.  数组中第K大的数(堆的应用) (LeetCode 215. Kth Largest Element in an Array)　可以看一下
-     8.  寻找中位数(堆的应用)( LeetCode 295 Find Median from Data Stream)
+     8.  寻找中位数(堆的应用)( LeetCode 295 Find Median from Data Stream)　动态维护一个最大堆和最小堆
