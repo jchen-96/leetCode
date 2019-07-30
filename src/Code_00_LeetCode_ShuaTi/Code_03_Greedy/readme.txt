@@ -6,6 +6,8 @@
      3.  贪心题目2(LeetCode 402. Remove K Digits) 用了栈这种数据结构，思路很重要
      4.  贪心题目(leetcode 55 )　跳跃问题1　好好看看
      4. 　贪心题目(leetcode 45)  跳跃问题2　好好看看
+     4.  贪心题目(leetcode 452) 射击气球　　区间问题，思路比较重要
+
      4.  贪心题目3(LeetCode 134. Gas Station)
      5.  贪心题目4(LeetCode 135. Candy)
      6.  贪心题目5(LeetCode 502. IPO)
