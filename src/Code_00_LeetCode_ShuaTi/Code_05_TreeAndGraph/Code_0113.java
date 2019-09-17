@@ -10,12 +10,12 @@ public class Code_0113 {
         List<List<Integer>> result=new ArrayList<>();
         List<Integer> item=new ArrayList<>();
         TreeNode curNode=root;
-        int[] res=new int[1];
+        int[] res=new int[1];   //java中不存在引用，要想在递归的过程之，某个值变化
         generate(sum,res,curNode,result,item);
         return result;
 
     }
-    private void generate(int sum,int[] res,TreeNode curNode,List<List<Integer>> result,List<Integer> item){
+    private void generate(int sum, int[] res, TreeNode curNode, List<List<Integer>> result, List<Integer> item){
         if(curNode==null){
             return;
         }
