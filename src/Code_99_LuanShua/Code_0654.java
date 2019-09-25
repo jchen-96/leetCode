@@ -30,12 +30,3 @@ public class Code_0654 {
 }
 
 
-class TreeNode{
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x){
-        this.val=x;
-    }
-}
