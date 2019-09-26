@@ -2,7 +2,7 @@ package Code_99_LuanShua;
 
 
 public class TreeNode{
-    int val;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 
