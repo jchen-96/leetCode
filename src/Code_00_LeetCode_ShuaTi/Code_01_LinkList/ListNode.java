@@ -1,8 +1,8 @@
 package Code_00_LeetCode_ShuaTi.Code_01_LinkList;
 
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     ListNode(int x) {
         val = x;
