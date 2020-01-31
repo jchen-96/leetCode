@@ -35,5 +35,4 @@ public class Code_0031 {
         Arrays.sort(nums,sort_index+1,nums.length);
     }
 
-
 }
