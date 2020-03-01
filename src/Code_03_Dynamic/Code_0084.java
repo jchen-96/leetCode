@@ -1,15 +1,19 @@
 package Code_03_Dynamic;
 
+import java.util.Stack;
+
 public class Code_0084 {
     public int largestRectangleArea(int[] heights) {
-        int area=0;
-        for(int i=0;i<heights.length;i++){
-            int min_height=Integer.MAX_VALUE;
-            for(int j=i;j<heights.length;j++){
-                min_height=Math.min(min_height,heights[j]);
-                area=Math.max(area,min_height*(j-i+1));
-            }
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        int res = 0;
+        for (int i = 0; i < heights.length; i++) {
+            while (stack.peek() != -1 && heights[i] <= heights[stack.peek()])
+                res = Math.max(res, heights[stack.pop()] * (i - stack.peek() - 1));
+            stack.push(i);
         }
-        return area;
+        while (stack.peek() != -1)
+            res = Math.max(res, heights[stack.pop()] * (heights.length - stack.peek() - 1));
+        return res;
     }
 }
