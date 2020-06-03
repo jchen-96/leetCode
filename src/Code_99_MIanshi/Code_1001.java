@@ -1,6 +1,6 @@
-package Code_99_MianShiBaoDian;
+package Code_99_MIanshi;
 
-public class Code_10_01 {
+public class Code_1001 {
     public void merge(int[] A, int m, int[] B, int n) {
         int[] temp=new int[m];
         for(int i=0;i<m;i++)
