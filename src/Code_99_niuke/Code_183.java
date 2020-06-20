@@ -1,31 +1,27 @@
+package Code_99_niuke;
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Code_183 {
     static long mod=1000000007;
 
     public static void main(String[] args)throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         long n = Long.valueOf(bf.readLine());
-
-        System.out.println(f3(n)%mod);
-    }
-
-    public static long f3(long n){
         if(n==0)
-            return 0;
-        if(n==1)
-            return 1;
-        if(n==2)
-            return 2;
+            System.out.println(0);
+        if(n==1||n==2)
+            System.out.println(1);
         long[][] base={{1,1},{1,0}};
-        long[][] res=matrixPower(base,n-2);
-        return res[0][0]*2%mod+res[1][0]%mod;
+        long[][] res=f2(base,n-2);
+        System.out.println((res[0][0]+res[1][0])%mod);
     }
 
     //求一个矩阵的n次方
-    private static long[][] matrixPower(long[][] m,long n){
+    private static long[][] f2(long[][] m,long n){
         long[][] res=new long[m.length][m[0].length];
         for(int i=0;i<m.length;i++)
             res[i][i]=1;

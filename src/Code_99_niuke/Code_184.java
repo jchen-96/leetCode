@@ -1,8 +1,10 @@
+package Code_99_niuke;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Code_184 {
     static long mod=1000000007;
 
     public static void main(String[] args)throws IOException {
