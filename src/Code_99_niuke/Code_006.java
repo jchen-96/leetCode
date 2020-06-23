@@ -1,6 +1,9 @@
+package Code_99_niuke;
+
+import java.util.Scanner;
 import java.util.*;
 
-public class Main {
+public class Code_006 {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         int n = Integer.parseInt(reader.nextLine());
