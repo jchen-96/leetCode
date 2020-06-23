@@ -1,7 +1,9 @@
+package Code_99_niuke;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main{
+public class Code_108{
     public static void main(String[] args) throws Exception{
         BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
         reader.readLine();
@@ -68,12 +70,4 @@ public class Main{
     }
 }
 
-class Node{
-    public int val;
-    public Node next;
-
-    public Node(int val) {
-        this.val = val;
-    }
-}
 
