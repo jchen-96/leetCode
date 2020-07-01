@@ -1,23 +1,48 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class Main{
     public static void main(String[] args) throws Exception{
         BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-        String[] s=reader.readLine().trim().split(" ");
-        int n=Integer.parseInt(s[0]);
-        int m=Integer.parseInt(s[1]);
-        int[] arr=new int[n];
-        s=reader.readLine().trim().split(" ");
+        Map<String, List<String>> styleAndsongs=new HashMap<>();
+        Map<String,Integer> score=new HashMap<>();
+        Map<String,String> types=new HashMap<>();
+        String preSong="";
+        String preInter="";
+        while (reader.readLine()!="\n"){
+            String[] s=reader.readLine().trim().split(" ");
+            String kind=s[0];
+            if(kind.equals("I")){
+                if(styleAndsongs.get(s[2])==null){
+                    List<String>  list=new ArrayList<>();
+                    list.add(s[1]);
+                    styleAndsongs.put(s[2],list);
+                }else{
+                    List<String> list=styleAndsongs.get(s[2]);
+                    list.add(s[1]);
+                }
+            }else if(kind.equals("P")){
+                String musicName=s[1];
+                if(preSong.equals("")){
+                    score.put(musicName,3);
+                }else if(types.get(preSong).equals(types.get(musicName))){
+                    //所有的都加+1
+                }else{
+                    if(score.get(musicName)==null){
+                        score.put(musicName,3);
+                    }else{
+                        score.put(musicName,score.get(musicName)+3);
+                    }
+                }
+                preSong=musicName;
+            }
 
-        for(int i=0;i<n;i++){
-                arr[i]=Integer.parseInt(s[i]);
         }
-        System.out.println(getV(arr,m));
-    }
-    private static int getV(int[] coins,int sum){
-        return 0;
     }
 
 }
