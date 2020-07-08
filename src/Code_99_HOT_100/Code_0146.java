@@ -1,5 +1,6 @@
 package Code_99_HOT_100;
 
+
 import java.util.HashMap;
 
 public class Code_0146 {
@@ -9,84 +10,87 @@ public class Code_0146 {
 //LRU缓存算法的设计
 
 class LRUCache {
-    private HashMap<Integer,Node> map;
+    CacheList cacheList;
+    HashMap<Integer,DataNode> map;
+    int capc;
+    int size;
 
-    private DoubleList cache;
-
-    private int capc;
-
-    public LRUCache(int capacity) {
-        this.capc=capacity;
-        map=new HashMap<>();
-        cache=new DoubleList();
+    public LRUCache(int capc) {
+        this.cacheList = new CacheList();
+        this.map = new HashMap<>();
+        this.capc = capc;
     }
 
-    public int get(int key) {
+    public int get(int key){
         if(!map.containsKey(key))
             return -1;
-        int val=map.get(key).val;
-        put(key,val);
-        return val;
+        DataNode node=map.get(key);
+        cacheList.deleteNode(node);
+        cacheList.addFirst(node);
+        return node.v;
     }
 
-    public void put(int key, int value) {
-        Node x=new Node(key,value);
-        if(map.containsKey(key)){
-            cache.remove(map.get(key));
-        }else{
-            if(capc==cache.size()){
-                Node last=cache.removeLast();
-                map.remove(last.key);
-            }
+    public void put(int k,int v){
+        DataNode node=new DataNode(k,v);
+        if(map.containsKey(k)){
+            cacheList.deleteNode(map.get(k));
+            size--;
         }
-        cache.addFirst(x);
-        map.put(key,x);
-    }
-}
-
-class DoubleList{
-    private Node head,tail;
-    private int size;
-
-    public DoubleList(){
-        head=new Node(0,0);
-        tail=new Node(0,0);
-        head.next=tail;
-        tail.prev=head;
-        size=0;
-    }
-
-    public void addFirst(Node x){
-        x.next=head.next;
-        x.prev=head;
-        head.next.prev=x;
-        head.next=x;
+        if(size==capc){
+            DataNode t=cacheList.removeLast();
+            map.remove(t.k);
+            size--;
+        }
+        map.put(k,node);
+        cacheList.addFirst(node);
         size++;
     }
+}
 
-    public void remove(Node x){
-        x.prev.next=x.next;
-        x.next.prev=x.prev;
-        size--;
+class CacheList{
+    int capc;
+    DataNode head;
+    DataNode tail;
+
+    public CacheList() {
+        capc=0;
+        this.head = new DataNode(0,0);
+        this.tail = new DataNode(0,0);
+        head.next=tail;
+        tail.pre=head;
     }
-    public Node removeLast(){
-        if(tail.prev==head){
+
+    public void addFirst(DataNode node){
+        capc++;
+        node.next=head.next;
+        head.next.pre=node;
+        head.next=node;
+        node.pre=head;
+    }
+    public DataNode removeLast(){
+        capc--;
+        if(capc<0)
             return null;
-        }
-        Node last=tail.prev;
-        remove(last);
-        return last;
+        DataNode temp=tail.pre;
+        tail.pre.pre.next=tail;
+        tail.pre=tail.pre.pre;
+        return temp;
     }
-    public int size(){
-        return size;
+    public void deleteNode(DataNode node){
+        capc--;
+        if(capc<0)
+            return;
+        node.pre.next=node.next;
+        node.next.pre=node.pre;
     }
 }
 
-class Node {
-    public int key, val;
-    public Node next, prev;
-    public Node(int k, int v) {
-        this.key = k;
-        this.val = v;
+class DataNode{
+    int k,v;
+    DataNode pre,next;
+    public DataNode(int k, int v) {
+        this.k = k;
+        this.v = v;
     }
 }
+

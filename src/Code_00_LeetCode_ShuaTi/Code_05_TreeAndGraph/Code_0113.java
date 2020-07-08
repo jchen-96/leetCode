@@ -9,25 +9,24 @@ public class Code_0113 {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> result=new ArrayList<>();
         List<Integer> item=new ArrayList<>();
-        TreeNode curNode=root;
-        int[] res=new int[1];   //java中不存在引用，要想在递归的过程之，某个值变化
-        generate(sum,res,curNode,result,item);
+        generate2(sum,0,root,result,item);
         return result;
 
     }
-    private void generate(int sum, int[] res, TreeNode curNode, List<List<Integer>> result, List<Integer> item){
-        if(curNode==null){
+    private void generate2(int sum,int res,TreeNode curNode,List<List<Integer>> result,List<Integer> item){
+        if(curNode==null)
             return;
-        }
-        res[0]+=curNode.val;
+        res+=curNode.val;
         item.add(curNode.val);
-        if(res[0]==sum&&curNode.left==null&&curNode.right==null){
+        if(curNode.left==null&&curNode.right==null&&res==sum){
             result.add(new ArrayList<>(item));
         }
-        generate(sum,res,curNode.left,result,item);
-        generate(sum,res,curNode.right,result,item);
-        res[0]-=curNode.val;
+        if(curNode.left!=null){
+            generate2(sum,res,curNode.left,result,item);
+        }
+        if(curNode.right!=null){
+            generate2(sum,res,curNode.right,result,item);
+        }
         item.remove(item.size()-1);
-
     }
 }
