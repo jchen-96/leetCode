@@ -13,11 +13,11 @@ public class heapSort {
     private static void heapSrot(int[] arr){
         int size=arr.length;
         for(int i=(size-2)/2;i>=0;i--){
-            shiftDown(arr,size,i);
+            shiftDown2(arr,size,i);
         }
         for(int i=size-1;i>=0;i--){
             swap(arr,i,0);
-            shiftDown(arr,i,0);
+            shiftDown2(arr,i,0);
         }
     }
 
@@ -35,6 +35,22 @@ public class heapSort {
             }
         }
     }
+
+    private static void shiftDown2(int[] heap,int n,int i){
+        while (i*2+1<n){
+            int j=heap[i*2+1]>heap[i]?i*2+1:i;
+            if(i*2+2<n){
+                if(heap[i*2+2]>heap[j])
+                    j=i*2+2;
+            }
+            if(i==j)
+                return;
+            swap(heap,i,j);
+            i=j;
+        }
+
+    }
+
     private static void swap(int[] arr,int i,int j){
         int temp=arr[i];
         arr[i]=arr[j];
