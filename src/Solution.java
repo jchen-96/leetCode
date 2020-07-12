@@ -1,37 +1,32 @@
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-        System.out.println("test");
-        List<List<Integer>> res=new Solution().get(4);
-
-        Set<List<Integer>> set=new HashSet<>();
-        for(List<Integer> list:res){
-            Collections.sort(list);
-            if(list.size()>1)
-                set.add(list);
-        }
-        System.out.println("test");
+        new Solution().getMinDistSum(new int[][]{{1,1},{0,0},{2,0}});
     }
-
-    List<List<Integer>> result=new ArrayList<>();
-    public List<List<Integer>> get(int n){
-        get2(n,new ArrayList<>());
-        return result;
-    }
-
-    private void get2(int num,List<Integer> pro){
-        if(num==0) {
-            if (!result.contains(pro)) {
-                result.add(new ArrayList<>(pro));
-                return;
-            }
+    public double getMinDistSum(int[][] positions) {
+        if(positions==null||positions.length<=1)
+            return 0;
+        double avx=0;
+        double avy=0;
+        int totalx=0;
+        int totaly=0;
+        for(int i=0;i<positions.length;i++){
+            totalx+=positions[i][0];
+            totaly+=positions[i][1];
         }
-        for (int i = 1; i < num+1; i++) {
-            pro.add(i);
-            get2(num-i,pro);
-            pro.remove(pro.size()-1);
-        }
-    }
+        avx=totalx*1.0/(positions.length*1.0);
+        avy=totaly*1.0/(positions.length*1.0);
 
+        double res=0;
+        for(int i=0;i<positions.length;i++){
+            double disx=(positions[i][0]-avx)*(positions[i][0]-avx);
+            double disy=(positions[i][1]-avy)*(positions[i][1]-avy);
+            res+=Math.sqrt(disx+disy);
+        }
+        DecimalFormat df=new DecimalFormat("0.00000");
+        return Double.valueOf(df.format(res)) ;
+
+    }
 }
