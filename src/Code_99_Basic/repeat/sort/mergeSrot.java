@@ -40,8 +40,7 @@ public class mergeSrot {
                 i++;
             } else {
                 arr[l + k] = aux[j];
-                j++;
-            }
+                j++; }
             k++;
         }
     }

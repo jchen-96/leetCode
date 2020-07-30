@@ -1,14 +1,29 @@
 package Code_99_JZOFFER;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 //下次使用搜索的思路做一下
 public class Code_17 {
-    public int[] printNumbers(int n) {
-        int m=(int)Math.pow(10,n);
-        int[] res=new int[m-1];
-        for(int i=1;i<m;i++){
-            res[i-1]=i;
+    List<String> res=new ArrayList<>();
+    public String[] printNumbers(int n) {
+        dfs("",n);
+        String[] ss=new String[res.size()];
+        return res.toArray(ss);
+    }
+    private void dfs(String cur,int n){
+        if(cur.length()==n){
+            res.add(cur);
+            return;
         }
-        return res;
+        for(int i=0;i<10;i++)
+            dfs(cur+i,n);
+    }
+
+    public static void main(String[] args) {
+        String[] ss=new Code_17().printNumbers(2);
+        for(String s:ss)
+            System.out.println(s);
     }
 }

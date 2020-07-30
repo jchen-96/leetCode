@@ -13,7 +13,7 @@ public class Code_11 {
             else if (numbers[mid] < numbers[r])
                 r=mid;
             else
-                r=r-1;
+                r--;
         }
         return numbers[l];
     }
