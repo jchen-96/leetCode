@@ -1,30 +1,20 @@
 class Solution{
-    public int getValue(String exp){
-        if(isNum(exp))
-            return Integer.parseInt(exp);
-        int i=0;
-        int j=0;
-        if (exp.charAt(j)<'0'||exp.charAt(j)>'9'){
-            char c=exp.charAt(j);
-            if(c=='+'){
-                return Integer.parseInt(exp.substring(i,j))+getValue(exp.substring(j+1));
-            }else if(c=='-'){
-                return Integer.parseInt(exp.substring(i,j))-getValue(exp.substring(j+1));
-            }else if(c=='/'){
+    public int getRes(int i,int[] record,int n){
+        if(i==n)
+            return 1;
+        int res=0;
+        for(int j=0;j<n;j++){
 
-            }else{
-
-            }
-        }else{
-            j++;
         }
         return 0;
     }
-    private boolean isNum(String s){
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)<'0'||s.charAt(i)>'9')
-                return false;
+
+
+    //record[i][j]等于1表示，在i行的j位置上，已经有皇后了
+    public int isValid(int[] record,int i,int j){
+        for(int k=0;k<i;k++){
+            break;
         }
-        return true;
+        return 0;
     }
 }

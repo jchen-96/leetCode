@@ -1,36 +1,35 @@
-import Code_00_LeetCode_ShuaTi.Code_01_LinkList.ListNode;
-import Code_00_LeetCode_ShuaTi.Code_04_Practice.TreeNode;
-
 import java.util.*;
+import java.io.*;
 
-class Main {
-    public int longestCommonSubsequence(String text1, String text2) {
-        int[][] dp=new int[text1.length()+1][text2.length()+1];
+public class Main {
 
-        boolean flag=false;
-        for(int i=0;i<dp.length;i++){
-            if(flag||text1.charAt(i)==text2.charAt(0)){
-                dp[i][0]=1;
-                flag=true;
+
+    //n个物品，每个物品的重量为wi,价值为vi ,背包的最大值为target
+    private static int getRes(int[] ws, int[] vs, int n, int target) {
+        int[] dp = new int[target + 1];
+        //dp[i][j]表示前i个物品，容量不超过j。
+        for (int i = 1; i <= n; i++) {
+            for (int j = ws[i - 1]; j <= target; j++) {
+                dp[j] = Math.max(dp[j], dp[j - ws[i - 1]] + vs[i - 1]);
             }
         }
-        flag=false;
-        for(int i=0;i<dp[0].length;i++){
-            if(flag||text2.charAt(i)==text1.charAt(0)){
-                dp[0][i]=1;
-                flag=true;
-            }
-        }
+        return dp[target];
+    }
 
-        for(int i=1;i<text1.length();i++){
-            for(int j=1;j<text2.length();j++){
-                if(text1.charAt(i)==text2.charAt(j)){
-                    dp[i][j]=dp[i-1][j-1];
-                }
-                dp[i][j]=Math.max(dp[i][j],Math.max(dp[i-1][j],dp[i][j-1]));
-            }
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String[] ss = reader.readLine().split(" ");
+        int n = Integer.parseInt(ss[0]);
+        int[] vol = new int[n];
+        int[] price = new int[n];
+        int[] nums=new int[n];
+        int m = Integer.parseInt(ss[1]);
+        for (int i = 0; i < n; i++) {
+            ss = reader.readLine().split(" ");
+            vol[i] = Integer.parseInt(ss[0]);
+            price[i] = Integer.parseInt(ss[1]);
+            nums[]
         }
-        return dp[text1.length()-1][text2.length()-1];
-
+        System.out.println(getRes(ws, vs, n, m));
     }
 }
